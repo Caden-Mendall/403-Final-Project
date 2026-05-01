@@ -35,6 +35,8 @@
  game_date          | date                        |           |          | 
 Indexes:
     "games_pkey" PRIMARY KEY, btree (game_id)
+Referenced by:
+    TABLE "teamstatistics" CONSTRAINT "gameid" FOREIGN KEY (gameid) REFERENCES games(game_id)
 
                  Table "group120798.players"
      Column      |   Type   | Collation | Nullable | Default 
@@ -61,6 +63,8 @@ Indexes:
  toyear          | integer  |           |          | 
 Indexes:
     "players_pkey" PRIMARY KEY, btree (personid)
+Referenced by:
+    TABLE "playerstatistics" CONSTRAINT "fk_playerstatistics_player" FOREIGN KEY (personid) REFERENCES players(personid)
 
                           Table "group120798.playerstatistics"
          Column          |            Type             | Collation | Nullable | Default 
@@ -107,6 +111,8 @@ Indexes:
  gamedate                | timestamp without time zone |           |          | 
 Indexes:
     "playerstatistics_pkey" PRIMARY KEY, btree (gameid, personid, opponentteamid, playerteamid)
+Foreign-key constraints:
+    "fk_playerstatistics_player" FOREIGN KEY (personid) REFERENCES players(personid)
 
                            Table "group120798.teamstatistics"
          Column          |            Type             | Collation | Nullable | Default 
@@ -172,4 +178,6 @@ Indexes:
  gamedate                | timestamp without time zone |           |          | 
 Indexes:
     "teamstatistics_pkey" PRIMARY KEY, btree (gameid, teamid, opponentteamid)
+Foreign-key constraints:
+    "gameid" FOREIGN KEY (gameid) REFERENCES games(game_id)
 
