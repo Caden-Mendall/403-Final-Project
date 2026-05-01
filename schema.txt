@@ -1,0 +1,60 @@
+               List of relations
+   Schema    |  Name   | Type  |     Owner      
+-------------+---------+-------+----------------
+ group120798 | games   | table | ryan_netuschil
+ group120798 | players | table | bennett1
+(2 rows)
+
+                             Table "group120798.games"
+       Column       |            Type             | Collation | Nullable | Default 
+--------------------+-----------------------------+-----------+----------+---------
+ game_id            | bigint                      |           | not null | 
+ game_date_time_est | timestamp without time zone |           |          | 
+ hometeam_city      | character varying(255)      |           |          | 
+ hometeam_name      | character varying(255)      |           |          | 
+ hometeam_id        | bigint                      |           |          | 
+ awayteam_city      | character varying(255)      |           |          | 
+ awayteam_name      | character varying(255)      |           |          | 
+ awayteam_id        | bigint                      |           |          | 
+ home_score         | integer                     |           |          | 
+ away_score         | integer                     |           |          | 
+ winner             | bigint                      |           |          | 
+ game_type          | character varying(100)      |           |          | 
+ game_subtype       | character varying(100)      |           |          | 
+ game_label         | character varying(100)      |           |          | 
+ game_sub_label     | character varying(100)      |           |          | 
+ series_game_number | character varying(100)      |           |          | 
+ attendance         | integer                     |           |          | 
+ arena_id           | bigint                      |           |          | 
+ arena_name         | character varying(255)      |           |          | 
+ arena_city         | character varying(255)      |           |          | 
+ arena_state        | character varying(100)      |           |          | 
+ officials          | text                        |           |          | 
+ game_date          | date                        |           |          | 
+Indexes:
+    "games_pkey" PRIMARY KEY, btree (game_id)
+
+               Table "group120798.players"
+     Column      | Type | Collation | Nullable | Default 
+-----------------+------+-----------+----------+---------
+ personid        | text |           |          | 
+ firstname       | text |           |          | 
+ lastname        | text |           |          | 
+ birthdate       | text |           |          | 
+ school          | text |           |          | 
+ country         | text |           |          | 
+ heightinches    | text |           |          | 
+ bodyweightlbs   | text |           |          | 
+ jersey          | text |           |          | 
+ guard           | text |           |          | 
+ forward         | text |           |          | 
+ center          | text |           |          | 
+ dleagueflag     | text |           |          | 
+ nbaflag         | text |           |          | 
+ gamesplayedflag | text |           |          | 
+ draftyear       | text |           |          | 
+ draftround      | text |           |          | 
+ draftnumber     | text |           |          | 
+ fromyear        | text |           |          | 
+ toyear          | text |           |          | 
+
