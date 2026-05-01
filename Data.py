@@ -6,7 +6,7 @@ class Login:
         self.params = {
             'database': 'csci403',
             "user": "beverly",
-            "password": "hilt885HASHCH!",
+            "password": "urpassword",
             "host": 'ada.mines.edu'
         }
 
