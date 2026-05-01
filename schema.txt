@@ -1,10 +1,11 @@
-                   List of relations
-   Schema    |      Name      | Type  |     Owner      
--------------+----------------+-------+----------------
- group120798 | games          | table | ryan_netuschil
- group120798 | players        | table | bennett1
- group120798 | teamstatistics | table | bennett1
-(3 rows)
+                    List of relations
+   Schema    |       Name       | Type  |     Owner      
+-------------+------------------+-------+----------------
+ group120798 | games            | table | ryan_netuschil
+ group120798 | players          | table | bennett1
+ group120798 | playerstatistics | table | bennett1
+ group120798 | teamstatistics   | table | bennett1
+(4 rows)
 
                              Table "group120798.games"
        Column       |            Type             | Collation | Nullable | Default 
@@ -60,6 +61,52 @@ Indexes:
  toyear          | integer  |           |          | 
 Indexes:
     "players_pkey" PRIMARY KEY, btree (personid)
+
+                          Table "group120798.playerstatistics"
+         Column          |            Type             | Collation | Nullable | Default 
+-------------------------+-----------------------------+-----------+----------+---------
+ firstname               | text                        |           |          | 
+ lastname                | text                        |           |          | 
+ personid                | integer                     |           | not null | 
+ gameid                  | integer                     |           | not null | 
+ gamedatetimeest         | timestamp without time zone |           |          | 
+ playerteamcity          | text                        |           |          | 
+ playerteamname          | text                        |           |          | 
+ opponentteamcity        | text                        |           |          | 
+ opponentteamname        | text                        |           |          | 
+ gametype                | text                        |           |          | 
+ gamelabel               | text                        |           |          | 
+ gamesublabel            | text                        |           |          | 
+ seriesgamenumber        | integer                     |           |          | 
+ win                     | smallint                    |           |          | 
+ home                    | smallint                    |           |          | 
+ numminutes              | double precision            |           |          | 
+ points                  | double precision            |           |          | 
+ assists                 | double precision            |           |          | 
+ blocks                  | double precision            |           |          | 
+ steals                  | double precision            |           |          | 
+ fieldgoalsattempted     | double precision            |           |          | 
+ fieldgoalsmade          | double precision            |           |          | 
+ fieldgoalspercentage    | double precision            |           |          | 
+ threepointersattempted  | double precision            |           |          | 
+ threepointersmade       | double precision            |           |          | 
+ threepointerspercentage | double precision            |           |          | 
+ freethrowsattempted     | double precision            |           |          | 
+ freethrowsmade          | double precision            |           |          | 
+ freethrowspercentage    | double precision            |           |          | 
+ reboundsdefensive       | double precision            |           |          | 
+ reboundsoffensive       | double precision            |           |          | 
+ reboundstotal           | double precision            |           |          | 
+ foulspersonal           | double precision            |           |          | 
+ turnovers               | double precision            |           |          | 
+ plusminuspoints         | double precision            |           |          | 
+ playerteamid            | bigint                      |           | not null | 
+ opponentteamid          | bigint                      |           | not null | 
+ comment                 | text                        |           |          | 
+ startingposition        | text                        |           |          | 
+ gamedate                | timestamp without time zone |           |          | 
+Indexes:
+    "playerstatistics_pkey" PRIMARY KEY, btree (gameid, personid, opponentteamid, playerteamid)
 
                            Table "group120798.teamstatistics"
          Column          |            Type             | Collation | Nullable | Default 
