@@ -1,0 +1,128 @@
+                   List of relations
+   Schema    |      Name      | Type  |     Owner      
+-------------+----------------+-------+----------------
+ group120798 | games          | table | ryan_netuschil
+ group120798 | players        | table | bennett1
+ group120798 | teamstatistics | table | bennett1
+(3 rows)
+
+                             Table "group120798.games"
+       Column       |            Type             | Collation | Nullable | Default 
+--------------------+-----------------------------+-----------+----------+---------
+ game_id            | bigint                      |           | not null | 
+ game_date_time_est | timestamp without time zone |           |          | 
+ hometeam_city      | character varying(255)      |           |          | 
+ hometeam_name      | character varying(255)      |           |          | 
+ hometeam_id        | bigint                      |           |          | 
+ awayteam_city      | character varying(255)      |           |          | 
+ awayteam_name      | character varying(255)      |           |          | 
+ awayteam_id        | bigint                      |           |          | 
+ home_score         | integer                     |           |          | 
+ away_score         | integer                     |           |          | 
+ winner             | bigint                      |           |          | 
+ game_type          | character varying(100)      |           |          | 
+ game_subtype       | character varying(100)      |           |          | 
+ game_label         | character varying(100)      |           |          | 
+ game_sub_label     | character varying(100)      |           |          | 
+ series_game_number | character varying(100)      |           |          | 
+ attendance         | integer                     |           |          | 
+ arena_id           | bigint                      |           |          | 
+ arena_name         | character varying(255)      |           |          | 
+ arena_city         | character varying(255)      |           |          | 
+ arena_state        | character varying(100)      |           |          | 
+ officials          | text                        |           |          | 
+ game_date          | date                        |           |          | 
+Indexes:
+    "games_pkey" PRIMARY KEY, btree (game_id)
+
+                 Table "group120798.players"
+     Column      |   Type   | Collation | Nullable | Default 
+-----------------+----------+-----------+----------+---------
+ personid        | integer  |           | not null | 
+ firstname       | text     |           |          | 
+ lastname        | text     |           |          | 
+ birthdate       | date     |           |          | 
+ school          | text     |           |          | 
+ country         | text     |           |          | 
+ heightinches    | integer  |           |          | 
+ bodyweightlbs   | integer  |           |          | 
+ jersey          | text     |           |          | 
+ guard           | smallint |           |          | 
+ forward         | smallint |           |          | 
+ center          | smallint |           |          | 
+ dleagueflag     | smallint |           |          | 
+ nbaflag         | smallint |           |          | 
+ gamesplayedflag | smallint |           |          | 
+ draftyear       | integer  |           |          | 
+ draftround      | integer  |           |          | 
+ draftnumber     | integer  |           |          | 
+ fromyear        | integer  |           |          | 
+ toyear          | integer  |           |          | 
+Indexes:
+    "players_pkey" PRIMARY KEY, btree (personid)
+
+                           Table "group120798.teamstatistics"
+         Column          |            Type             | Collation | Nullable | Default 
+-------------------------+-----------------------------+-----------+----------+---------
+ gameid                  | integer                     |           | not null | 
+ gamedatetimeest         | timestamp without time zone |           |          | 
+ teamcity                | text                        |           |          | 
+ teamname                | text                        |           |          | 
+ teamid                  | bigint                      |           | not null | 
+ opponentteamcity        | text                        |           |          | 
+ opponentteamname        | text                        |           |          | 
+ opponentteamid          | bigint                      |           | not null | 
+ home                    | smallint                    |           |          | 
+ win                     | smallint                    |           |          | 
+ teamscore               | integer                     |           |          | 
+ opponentscore           | integer                     |           |          | 
+ assists                 | integer                     |           |          | 
+ blocks                  | integer                     |           |          | 
+ steals                  | integer                     |           |          | 
+ fieldgoalsattempted     | integer                     |           |          | 
+ fieldgoalsmade          | integer                     |           |          | 
+ fieldgoalspercentage    | double precision            |           |          | 
+ threepointersattempted  | integer                     |           |          | 
+ threepointersmade       | integer                     |           |          | 
+ threepointerspercentage | double precision            |           |          | 
+ freethrowsattempted     | integer                     |           |          | 
+ freethrowsmade          | integer                     |           |          | 
+ freethrowspercentage    | double precision            |           |          | 
+ reboundsdefensive       | integer                     |           |          | 
+ reboundsoffensive       | integer                     |           |          | 
+ reboundstotal           | integer                     |           |          | 
+ foulspersonal           | integer                     |           |          | 
+ turnovers               | integer                     |           |          | 
+ plusminuspoints         | double precision            |           |          | 
+ numminutes              | double precision            |           |          | 
+ q1points                | integer                     |           |          | 
+ q2points                | integer                     |           |          | 
+ q3points                | integer                     |           |          | 
+ q4points                | integer                     |           |          | 
+ benchpoints             | integer                     |           |          | 
+ biggestlead             | integer                     |           |          | 
+ biggestscoringrun       | integer                     |           |          | 
+ leadchanges             | integer                     |           |          | 
+ pointsfastbreak         | integer                     |           |          | 
+ pointsfromturnovers     | integer                     |           |          | 
+ pointsinthepaint        | integer                     |           |          | 
+ pointssecondchance      | integer                     |           |          | 
+ timestied               | integer                     |           |          | 
+ timeoutsremaining       | integer                     |           |          | 
+ seasonwins              | integer                     |           |          | 
+ seasonlosses            | integer                     |           |          | 
+ coachid                 | text                        |           |          | 
+ gametype                | text                        |           |          | 
+ gamelabel               | text                        |           |          | 
+ gamesublabel            | text                        |           |          | 
+ seriesgamenumber        | integer                     |           |          | 
+ seed                    | integer                     |           |          | 
+ reboundsteam            | integer                     |           |          | 
+ turnoversteam           | integer                     |           |          | 
+ ot1points               | integer                     |           |          | 
+ ot2points               | integer                     |           |          | 
+ otallpoints             | integer                     |           |          | 
+ gamedate                | timestamp without time zone |           |          | 
+Indexes:
+    "teamstatistics_pkey" PRIMARY KEY, btree (gameid, teamid, opponentteamid)
+
