@@ -36,6 +36,7 @@ def execute_query(db, query):
             c.execute(query)
             result = c.fetchall()
             print(result)
+
             # Commit changes for INSERT/UPDATE/DELETE
             db.commit() 
             
