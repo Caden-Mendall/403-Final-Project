@@ -21,12 +21,8 @@ def execute_query(query, args=None):
     try:
         # The 'with' block ensures the cursor is closed automatically
         with db.cursor() as c:
-            query = "set search_path to group120798;"
             c.execute(query)
-            query = "select * from games"
-            c.execute(query)
-            result = c.fetchall()
-            print(result)
+
             # Commit changes for INSERT/UPDATE/DELETE
             db.commit() 
             
